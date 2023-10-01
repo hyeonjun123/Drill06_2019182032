@@ -35,6 +35,8 @@ while running:
     TUK_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     hand_arrow.clip_draw(0,0,50,50,x,y)
 
+
+
     if click_list:
         target = click_list[0]
         dx = target[0] - character_x
@@ -46,7 +48,11 @@ while running:
             character_x += (dx / distance) * speed
             character_y += (dy / distance) * speed
 
-        hand_arrow.clip_draw(0, 0, 50, 50, target[0], target[1])
+
+        for i in range(0, len(click_list)):
+            hand_arrow.clip_draw(0,0,50,50,click_list[i][0],click_list[i][1])
+
+        #hand_arrow.clip_draw(0, 0, 50, 50, target[0], target[1])
 
         if distance <= 1:
             click_list.pop(0)
